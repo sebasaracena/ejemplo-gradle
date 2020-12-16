@@ -1,25 +1,14 @@
 pipeline {
     agent any
-
-    stages {
-        stage('compile') {
-            steps {
-                
-                sh 'gradle clean build'
-                
-                
+    stages{
+        stage('test'){
+            steps{
+                script{
+                    stage('hola'){
+                        println 'hola'
+                    }   
+                }
             }
         }
-      
-     
-        stage('run jar') {
-            steps {
-              
-                 sh 'JENKINS_NODE_COOKIE=dontKillMe nohup bash gradle bootRun'
-               
-                
-            } 
-        }
-        
     }
 }
